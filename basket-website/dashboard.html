@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Ops Dashboard | Blinkit Mini</title>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Your main CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    select {
+      padding: 8px;
+      border-radius: 6px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h2>🧠 Smart Ops Dashboard</h2>
+  <a href="index.html" style="color:white;text-decoration:none;">⬅ Back to Store</a>
+</header>
+
+<div style="padding:20px">
+
+  <!-- BUSINESS PULSE -->
+  <h2>📊 Business Pulse</h2>
+  <div class="dashboard-cards">
+    <div class="dash-card">Total Orders<br><span id="orders">0</span></div>
+    <div class="dash-card">Revenue (₹)<br><span id="revenue">0</span></div>
+    <div class="dash-card">Top Product 🔥<br><span id="topProduct">-</span></div>
+    <div class="dash-card">System Insight ⚠️<br><span id="alert">-</span></div>
+  </div>
+
+  <!-- MOOD -->
+  <h2 style="margin-top:30px;">🧠 Mood → Demand Intelligence</h2>
+  <select id="moodSelect" onchange="analyzeMood()">
+    <option value="">Select Customer Mood</option>
+    <option value="sad">😔 Sad / Stressed</option>
+    <option value="gym">💪 Fitness / Gym</option>
+    <option value="snack">😋 Snack Cravings</option>
+    <option value="party">🎉 Party Mood</option>
+  </select>
+
+  <div id="moodResult" style="margin-top:15px;font-weight:bold;"></div>
+
+  <!-- RECOMMENDATIONS -->
+  <h2 style="margin-top:30px;">🤖 Smart Business Recommendations</h2>
+  <ul id="bizAI"></ul>
+
+  <!-- CHART -->
+  <h2 style="margin-top:30px;">📈 Product Sales Performance</h2>
+  <canvas id="salesChart"></canvas>
+
+</div>
+
+<script>
+/* =========================
+   READ CSV DATA
+========================= */
+fetch("blinkit_orders.csv")
+  .then(response => response.text())
+  .then(csv => {
+    const lines = csv.trim().split("\n").slice(1);
+
+    let ordersSet = new Set();
+    let productCount = {};
+    let revenue = 0;
+
+    lines.forEach(line => {
+      let [order, item, qty] = line.split(",");
+      qty = parseInt(qty);
+
+      ordersSet.add(order);
+      productCount[item] = (productCount[item] || 0) + qty;
+
+      // Approx revenue logic (demo purpose)
+      revenue += qty * 50;
+    });
+
+    // BUSINESS PULSE
+    document.getElementById("orders").innerText = ordersSet.size;
+    document.getElementById("revenue").innerText = revenue;
+
+    // TOP PRODUCT
+    let top = "-", max = 0;
+    for (let item in productCount) {
+      if (productCount[item] > max) {
+        max = productCount[item];
+        top = item;
+      }
+    }
+    document.getElementById("topProduct").innerText = top;
+
+    document.getElementById("alert").innerText =
+      ordersSet.size < 3 ? "Low engagement ⚠️" : "Healthy sales ✅";
+
+    // BUSINESS AI SUGGESTIONS
+    const aiBox = document.getElementById("bizAI");
+    aiBox.innerHTML = `
+      <li>Promote <strong>${top}</strong> with combo offers</li>
+      <li>Push discounts during peak hours</li>
+      <li>Bundle frequently bought items</li>
+    `;
+
+    // CHART
+    new Chart(document.getElementById("salesChart"), {
+      type: "bar",
+      data: {
+        labels: Object.keys(productCount),
+        datasets: [{
+          label: "Units Sold",
+          data: Object.values(productCount),
+          backgroundColor: "#1ecb4f"
+        }]
+      }
+    });
+  });
+
+/* =========================
+   MOOD INTELLIGENCE
+========================= */
+function analyzeMood() {
+  const mood = document.getElementById("moodSelect").value;
+  const box = document.getElementById("moodResult");
+
+  if (mood === "sad")
+    box.innerText = "Recommend 🍦 Ice Cream, 🍫 Chocolate — comfort selling items.";
+  else if (mood === "gym")
+    box.innerText = "Push 🥗 Fruits, 🥬 Greens — health-focused demand.";
+  else if (mood === "snack")
+    box.innerText = "Promote 🍟 Chips + 🥤 Soft Drinks as a combo.";
+  else if (mood === "party")
+    box.innerText = "High demand for 🥤 Drinks, 🍿 Popcorn, 🍫 Snacks.";
+  else
+    box.innerText = "";
+}
+</script>
+
+</body>
+</html>

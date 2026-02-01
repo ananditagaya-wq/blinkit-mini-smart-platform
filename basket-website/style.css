@@ -1,0 +1,187 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f7fff4;
+}
+
+header {
+  background: #1ecb4f;
+  color: white;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-btn {
+  background: white;
+  color: #1ecb4f;
+  padding: 8px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.tagline {
+  text-align: center;
+  margin: 20px;
+  color: #1ecb4f;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.emoji {
+  font-size: 50px;
+  margin: 8px 0;
+}
+
+.card button {
+  background: #1ecb4f;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.cart {
+  position: fixed;
+  right: -320px;
+  top: 0;
+  width: 300px;
+  height: 100%;
+  background: white;
+  box-shadow: -4px 0 10px rgba(0,0,0,0.2);
+  padding: 15px;
+  transition: 0.3s;
+  overflow-y: auto;
+}
+
+.checkout-btn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  background: #1ecb4f;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.checkout {
+  display: none;
+  background: white;
+  width: 350px;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.confirm-btn {
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px;
+  background: black;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.dash-card {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  font-size: 16px;
+  text-align: center;
+}
+
+.dash-card span {
+  font-size: 22px;
+  font-weight: bold;
+  color: #1ecb4f;
+}
+.ai-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #1ecb4f;
+  color: white;
+  font-size: 26px;
+  padding: 12px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.ai-bot {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 280px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.ai-header {
+  background: #1ecb4f;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.ai-messages {
+  height: 220px;
+  padding: 10px;
+  overflow-y: auto;
+  font-size: 14px;
+}
+
+.ai-input {
+  display: flex;
+  border-top: 1px solid #ddd;
+}
+
+.ai-input input {
+  flex: 1;
+  border: none;
+  padding: 8px;
+  outline: none;
+}
+
+.ai-input button {
+  border: none;
+  background: #1ecb4f;
+  color: white;
+  padding: 8px 12px;
+  cursor: pointer;
+}

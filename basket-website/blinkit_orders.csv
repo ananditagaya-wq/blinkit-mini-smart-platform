@@ -1,0 +1,37 @@
+Order,Item,Quantity
+Order 1,Rice,1
+Order 1,Fruit Juice,2
+Order 1,Ice Cream,2
+Order 1,Soap,1
+Order 1,Oranges,1
+Order 2,Salt,1
+Order 2,Cooking Oil,1
+Order 2,Corn,1
+Order 3,Cooking Oil,1
+Order 3,Milk,1
+Order 3,Mangoes,1
+Order 3,Ice Cream,1
+Order 3,Fruit Juice,1
+Order 4,Bread,1
+Order 4,Milk,1
+Order 4,Salt,1
+Order 4,Rice,2
+Order 4,Cooking Oil,1
+Order 4,Sugar,1
+Order 4,Soap,4
+Order 4,Salted Peanuts,1
+Order 4,Toothpaste,1
+Order 5,Corn,1
+Order 5,Bananas,1
+Order 5,Apples,1
+Order 6,Rice,3
+Order 6,Salt,1
+Order 6,Bread,1
+Order 6,Chocolate,1
+Order 6,Fruit Juice,1
+Order 6,Milk,1
+Order 7,Cooking Oil,1
+Order 7,Rice,1
+Order 7,Salt,1
+Order 7,Bread,1
+Order 7,Milk,1

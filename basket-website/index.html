@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blinkit Mini</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<div class="ai-bot" id="aiBot">
+  <div class="ai-header">🤖 Blinkit Mini AI</div>
+  <select id="aiMode" style="width:100%; padding:6px; margin-bottom:5px;">
+  <option value="friendly">😄 Friendly</option>
+  <option value="professional">🧑‍💼 Professional</option>
+</select>
+  <div class="ai-messages" id="aiMessages"></div>
+  <div class="ai-input">
+    <input type="text" id="aiText" placeholder="Ask me what to buy...">
+    <button onclick="askAI()">Send</button>
+  </div>
+</div>
+
+<div class="ai-float" onclick="toggleAI()">🤖</div>
+
+<body>
+
+<header>
+  <h2>Blinkit Mini 🛒</h2>
+  <div class="cart-btn" onclick="toggleCart()">🧺 <span id="count">0</span></div>
+</header>
+
+<h3 class="tagline">Groceries in minutes ⚡</h3>
+
+<div class="products" id="productList"></div>
+
+<div class="cart" id="cart">
+  <h2>Your Basket</h2>
+  <ul id="cartItems"></ul>
+  <p>Subtotal: ₹<span id="total">0</span></p>
+  <p>Delivery: ₹30</p>
+  <h3>Final: ₹<span id="final">0</span></h3>
+  <button class="checkout-btn" onclick="openCheckout()">Proceed to Checkout</button>
+</div>
+
+<div class="checkout" id="checkout">
+  <h2>Checkout 🧾</h2>
+  <div id="checkoutItems"></div>
+  <h3>Total Payable: ₹<span id="checkoutTotal">0</span></h3>
+  <button class="confirm-btn" onclick="confirmOrder()">Confirm Order</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
