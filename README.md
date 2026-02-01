@@ -30,19 +30,19 @@ This project focuses on **system design and decision-making**, not just UI cloni
 
  🎯 Learning Outcomes
 
-Product-oriented frontend development
-Practical data analytics workflow
-AI-style intent detection & recommendations
-System thinking beyond UI
-Real-world project structuring
+- Product-oriented frontend development
+- Practical data analytics workflow
+- AI-style intent detection & recommendations
+- System thinking beyond UI
+- Real-world project structuring
 
 🔮 Future Improvements
 
-Backend integration for real-time data storage
-Advanced recommendation models
-Power BI dashboards
-Full LLM-powered assistant
-Deployment on cloud platforms
+- Backend integration for real-time data storage
+- Advanced recommendation models
+- Power BI dashboards
+- Full LLM-powered assistant
+- Deployment on cloud platforms
 
 
 ---
